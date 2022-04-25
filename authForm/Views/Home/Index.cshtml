@@ -2,7 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - authForm</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/authForm.styles.css" asp-append-version="true"/>
+</head>
+<body>
+<div class="d-flex flex-column align-items-center">
+    <h2 class="card-header">Сайт для гостиницы</h2>
+    <p>Здравствуйте, вы @ViewBag.VisitorNumber посетитель за сегодня!</p>
+    <p class="mt-0">Сегодня @ViewBag.DateAndTime</p>
+    
+    <div>
+        <p>Добрый день! На этом сайте вы сможете забронировать себе номер в режиме онлайн.</p>
+        @Html.ActionLink("Перейти к форме регистрации", "Registration", "Home")
+    </div>
 </div>
+</body>
+</html>

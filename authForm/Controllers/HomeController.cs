@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using authForm.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace authForm.Controllers
 {
@@ -6,9 +8,24 @@ namespace authForm.Controllers
     public class HomeController : Controller
     {
         
-        public string Index()
+        public ViewResult Index()
         {
-            return "Сайт для гостиницы";
+            ViewBag.VisitorNumber = new Random().Next(1, 100);
+            ViewBag.DateAndTime = DateTime.Today.Date;
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult Registration()
+        {
+            ViewBag.Rooms = RoomRepository.GetRooms();
+            return View();
+        }
+
+        [HttpPost]
+        public ViewResult Registration(RegistrationForm model)
+        {
+            return View("Success", model);
         }
     }
 }

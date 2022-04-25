@@ -1,0 +1,24 @@
+﻿@model authForm.Models.RegistrationForm
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/authForm.styles.css" asp-append-version="true"/>
+<title>Регистрация завершена</title>
+</head>
+<body>
+<div>
+    <div class="d-flex flex-column justify-content-center align-items-center modal" style="height: 100vh;">
+        Уважаемый @Model.Name! Вы успешно заброировали себе номер в отеле! <br/>
+        Вы выбрали номер: @Model.SelectedRoom.Name
+    </div>
+</div>
+</body>
+</html>

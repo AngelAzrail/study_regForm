@@ -1,0 +1,34 @@
+﻿@model authForm.Models.RegistrationForm
+
+@{
+    ViewBag.Title = "Форма регистрации";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<link rel="stylesheet" href="~/authForm.styles.css" asp-append-version="true"/>
+<title>@ViewBag.Title</title>
+</head>
+<body>
+  <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh">
+  <h2>Регистрация</h2>
+  @using (Html.BeginForm())
+  {
+      <p class="d-flex justify-content-between">Ваша фамилия @Html.TextBoxFor(input => input.Surname)</p>
+      <p class="d-flex justify-content-between">Ваша имя @Html.TextBoxFor(input => input.Name)</p>
+      <p class="d-flex justify-content-between">Ваше отчество @Html.TextBoxFor(input => input.MiddleName)</p>
+      <p class="d-flex justify-content-between">Ваш телефон @Html.TextBoxFor(input => input.Phone)</p>
+      <p class="d-flex justify-content-between">Выбери комнату @Html.DropDownListFor(input => input.SelectedRoom.Name, new SelectList(ViewBag.Rooms, "Name", "Name"))</p>
+      <input class="btn-outline-success" type="submit" value="Завершить регистрацию"/>
+  }
+  </div>
+</body>
+</html>
+
+
